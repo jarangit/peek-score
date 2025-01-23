@@ -4,21 +4,83 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Dependency directories
+node_modules/
+.pnp/
+.pnp.js
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Build directories
+dist/
+build/
+out/
+
+# Runtime files
+*.pid
+*.pid.lock
+
+# Testing
+coverage/
+
+# Next.js specific
+.next/
+.vercel/
+*.env.local
+
+# Temporary files
 .DS_Store
+.env
+.env.*.local
+.cache/
+.vscode/
+.idea/
+*.swp
+
+# Editor-specific
+*.sublime-workspace
+*.sublime-project
+.vscode/
+*.code-workspace
+
+# IDE files
+.idea/
+*.iml
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
-*.sw?
+*.vcxproj
+
+# Yarn Integrity
+.yarn-integrity
+.yarn/
+.yarnrc.yml
+
+# Parcel-bundler cache
+.cache/
+
+# ESLint cache
+.eslintcache
+
+# npm and yarn logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Jest coverage reports
+coverage/
+
+# Storybook files
+.storybook/
+storybook-static/
+
+# React Native
+*.expo
+.expo-shared/
+
+# CI
+.circleci/
+
+# OS-specific
+Thumbs.db
+
+.env.local

@@ -5,18 +5,23 @@ import LeagueTabs from "./components/league-tab";
 import MatchResults from "./components/match-result";
 import SearchBar from "./components/search-bar";
 import { fetchMatchData } from "./services/matchs";
+// import { fetchGptData } from "./services/gpt";
 
 function App() {
   const [, setSearchQuery] = useState("");
   const [activeLeague, setActiveLeague] = useState(1);
 
-
   const [matchData, setMatchData] = useState<any | null>(null);
+  // const onGetGPT = async () => {
+  //   if (!searchGPT.trim()) return;
+  //   const res = await fetchGptData(searchGPT);
+  //   setGptData(res);
+  // };
 
   useEffect(() => {
     const getMatchData = async () => {
       const { response }: any = await fetchMatchData();
-    
+
       setMatchData(response);
     };
     getMatchData();
@@ -37,6 +42,13 @@ function App() {
 
   return (
     <div className=" mx-auto overflow-auto p-4">
+      {/* <input
+        type="text"
+        placeholder="Prompt"
+        onChange={(e: any) => setSearchGPT(e.target.value)}
+      />
+      <button onClick={() => onGetGPT()}>search</button>
+      <code>{gptData}</code> */}
       <h1 className="text-2xl font-bold text-center mb-6">
         ผลการแข่งขันฟุตบอล
       </h1>
