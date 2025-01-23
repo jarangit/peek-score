@@ -34,7 +34,6 @@ function App() {
   useEffect(() => {
     const getMatchData = async () => {
       const { response }: any = await fetchMatchData();
-
       setMatchData(response);
     };
     getMatchData();
