@@ -6,7 +6,7 @@ export const leaguesService = {
   getAll: async () => {
     console.log('get data')
     const data = mockDataLeagues.response.filter((item: any) => item.league.type == 'League')
-    console.log(data.slice(0, 5))
+    console.log(data.slice(0, 7))
     // จำลองการ fetch ข้อมูลจาก JSON
     return {
       ...mockDataLeagues,

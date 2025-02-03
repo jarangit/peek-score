@@ -2,9 +2,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
 import LeagueTabs from "./components/league-tab";
-import MatchResults from "./components/match-result";
+import MatchResults, { IMatch } from "./components/match-result";
 import SearchBar from "./components/search-bar";
-import { fetchMatchData } from "./services/matchs";
+import {  matchServiceAPI } from "./services/matchs";
 import DateTaps from "./components/date-tab";
 import { teamsServiceAPI } from "./services/teams";
 import { useQuery } from "@tanstack/react-query";
@@ -17,11 +17,7 @@ function App() {
   const [search, setSearch] = useState("");
   const debouncedQuery = useDebounce(search, 500); // ใช้ Debounce 500ms
 
-  const {
-    isLoading,
-    error,
-    data: teamData,
-  } = useQuery({
+  const { data: teamData } = useQuery({
     queryKey: ["getTeams", debouncedQuery],
     queryFn: () => teamsServiceAPI.getTeams({ search: debouncedQuery }),
     enabled: !!debouncedQuery,
@@ -33,7 +29,14 @@ function App() {
 
   useEffect(() => {
     const getMatchData = async () => {
-      const { response }: any = await fetchMatchData();
+      const { response }: any = await matchServiceAPI.getLiveMatch();
+      console.log(
+        "%cMyProject%cline:32%cresponse",
+        "color:#fff;background:#ee6f57;padding:3px;border-radius:2px",
+        "color:#fff;background:#1f3c88;padding:3px;border-radius:2px",
+        "color:#fff;background:rgb(3, 101, 100);padding:3px;border-radius:2px",
+        response
+      );
       setMatchData(response);
     };
     getMatchData();
@@ -46,11 +49,11 @@ function App() {
         <SearchBar onSearch={handleSearch} />
 
         {teamData ? (
-          <div className="flex flex-col gap-2  p-4 rounded-lg absolute w-full bg-black/40 backdrop-blur-xl border-gray-700 border">
+          <div className="flex flex-col gap-2  p-4 rounded-lg absolute w-full bg-black/40 backdrop-blur-xl border-gray-700 border z-[9999]">
             {teamData
               ? teamData.response.map((team, key) => (
                   <React.Fragment key={key}>
-                    <div className="flex items-center justify-start gap-2">
+                    <div className="flex items-center justify-start gap-2 ">
                       <img
                         src={team.team.logo}
                         alt={team.team.name}
@@ -67,18 +70,16 @@ function App() {
         )}
       </div>
 
-      <LeagueTabs />
-      <DateTaps />
+      <div className="bg-background p-6 mb-3 rounded-lg">
+        <LeagueTabs />
+        <DateTaps />
+      </div>
+
       {matchData && matchData.length ? (
-        <div className="flex flex-col gap-4 divide-y divide-gray-700">
-          {matchData.map((match: any, key: any) => (
+        <div className="flex flex-col gap-4 ">
+          {matchData.map((match: IMatch, key: any) => (
             <React.Fragment key={key}>
-              <MatchResults
-                teams={match.teams}
-                goals={match.goals}
-                date={match.fixture.date}
-                status={match.fixture.status.long}
-              />
+              <MatchResults data={match} />
             </React.Fragment>
           ))}
         </div>

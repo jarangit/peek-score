@@ -1,0 +1,417 @@
+{
+  "get": "fixtures",
+  "parameters": { "date": "2025-02-03", "status": "1H", "season": "2024" },
+  "errors": [],
+  "results": 8,
+  "paging": { "current": 1, "total": 1 },
+  "response": [
+    {
+      "fixture": {
+        "id": 1208256,
+        "referee": "Stuart Attwell, England",
+        "timezone": "UTC",
+        "date": "2025-02-03T20:00:00+00:00",
+        "timestamp": 1738612800,
+        "periods": { "first": 1738612800, "second": null },
+        "venue": { "id": 519, "name": "Stamford Bridge", "city": "London" },
+        "status": {
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 14,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2024,
+        "round": "Regular Season - 24",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 49,
+          "name": "Chelsea",
+          "logo": "https://media.api-sports.io/football/teams/49.png",
+          "winner": null
+        },
+        "away": {
+          "id": 48,
+          "name": "West Ham",
+          "logo": "https://media.api-sports.io/football/teams/48.png",
+          "winner": null
+        }
+      },
+      "goals": { "home": 0, "away": 0 },
+      "score": {
+        "halftime": { "home": 0, "away": 0 },
+        "fulltime": { "home": null, "away": null },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1208685,
+        "referee": "Melero Lopez, Mario, Spain",
+        "timezone": "UTC",
+        "date": "2025-02-03T20:00:00+00:00",
+        "timestamp": 1738612800,
+        "periods": { "first": 1738612800, "second": null },
+        "venue": {
+          "id": 1478,
+          "name": "Estadi Municipal de Montilivi",
+          "city": "Girona"
+        },
+        "status": {
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 14,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2024,
+        "round": "Regular Season - 22",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 547,
+          "name": "Girona",
+          "logo": "https://media.api-sports.io/football/teams/547.png",
+          "winner": true
+        },
+        "away": {
+          "id": 534,
+          "name": "Las Palmas",
+          "logo": "https://media.api-sports.io/football/teams/534.png",
+          "winner": false
+        }
+      },
+      "goals": { "home": 1, "away": 0 },
+      "score": {
+        "halftime": { "home": 1, "away": 0 },
+        "fulltime": { "home": null, "away": null },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1216195,
+        "referee": "Stephen Martin, England",
+        "timezone": "UTC",
+        "date": "2025-02-03T20:00:00+00:00",
+        "timestamp": 1738612800,
+        "periods": { "first": 1738612800, "second": null },
+        "venue": {
+          "id": 558,
+          "name": "Riverside Stadium",
+          "city": "Middlesbrough"
+        },
+        "status": {
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 15,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 40,
+        "name": "Championship",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/40.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2024,
+        "round": "Regular Season - 30",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 70,
+          "name": "Middlesbrough",
+          "logo": "https://media.api-sports.io/football/teams/70.png",
+          "winner": true
+        },
+        "away": {
+          "id": 746,
+          "name": "Sunderland",
+          "logo": "https://media.api-sports.io/football/teams/746.png",
+          "winner": false
+        }
+      },
+      "goals": { "home": 1, "away": 0 },
+      "score": {
+        "halftime": { "home": 1, "away": 0 },
+        "fulltime": { "home": null, "away": null },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1217772,
+        "referee": "Alvaro Moreno Aragon, Spain",
+        "timezone": "UTC",
+        "date": "2025-02-03T19:30:00+00:00",
+        "timestamp": 1738611000,
+        "periods": { "first": 1738611000, "second": null },
+        "venue": {
+          "id": 1482,
+          "name": "Estadio Ciudad de Valencia",
+          "city": "Valencia"
+        },
+        "status": {
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 43,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 141,
+        "name": "Segunda Divisi\u00f3n",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/141.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2024,
+        "round": "Regular Season - 25",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 539,
+          "name": "Levante",
+          "logo": "https://media.api-sports.io/football/teams/539.png",
+          "winner": false
+        },
+        "away": {
+          "id": 9409,
+          "name": "Racing Ferrol",
+          "logo": "https://media.api-sports.io/football/teams/9409.png",
+          "winner": true
+        }
+      },
+      "goals": { "home": 0, "away": 1 },
+      "score": {
+        "halftime": { "home": 0, "away": 1 },
+        "fulltime": { "home": null, "away": null },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1223817,
+        "referee": "Gianluca Manganiello, Italy",
+        "timezone": "UTC",
+        "date": "2025-02-03T19:45:00+00:00",
+        "timestamp": 1738611900,
+        "periods": { "first": 1738611900, "second": null },
+        "venue": { "id": 12275, "name": "Unipol Domus", "city": "Cagliari" },
+        "status": {
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 30,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 135,
+        "name": "Serie A",
+        "country": "Italy",
+        "logo": "https://media.api-sports.io/football/leagues/135.png",
+        "flag": "https://media.api-sports.io/flags/it.svg",
+        "season": 2024,
+        "round": "Regular Season - 23",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 490,
+          "name": "Cagliari",
+          "logo": "https://media.api-sports.io/football/teams/490.png",
+          "winner": null
+        },
+        "away": {
+          "id": 487,
+          "name": "Lazio",
+          "logo": "https://media.api-sports.io/football/teams/487.png",
+          "winner": null
+        }
+      },
+      "goals": { "home": 0, "away": 0 },
+      "score": {
+        "halftime": { "home": 0, "away": 0 },
+        "fulltime": { "home": null, "away": null },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1238485,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2025-02-03T19:45:00+00:00",
+        "timestamp": 1738611900,
+        "periods": { "first": 1738611900, "second": null },
+        "venue": {
+          "id": 21331,
+          "name": "Focus Community Arena",
+          "city": "Hemel Hempstead, Hertfordshire"
+        },
+        "status": {
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 28,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 51,
+        "name": "National League - South",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/51.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2024,
+        "round": "South - 25",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 8660,
+          "name": "Hemel Hempstead Town",
+          "logo": "https://media.api-sports.io/football/teams/8660.png",
+          "winner": false
+        },
+        "away": {
+          "id": 1830,
+          "name": "Boreham Wood",
+          "logo": "https://media.api-sports.io/football/teams/1830.png",
+          "winner": true
+        }
+      },
+      "goals": { "home": 1, "away": 2 },
+      "score": {
+        "halftime": { "home": 1, "away": 2 },
+        "fulltime": { "home": null, "away": null },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1249583,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2025-02-03T19:45:00+00:00",
+        "timestamp": 1738611900,
+        "periods": { "first": 1738611900, "second": null },
+        "venue": {
+          "id": 930,
+          "name": "Stadio Silvio Piola",
+          "city": "Vercelli"
+        },
+        "status": {
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 28,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 138,
+        "name": "Serie C - Girone A",
+        "country": "Italy",
+        "logo": "https://media.api-sports.io/football/leagues/138.png",
+        "flag": "https://media.api-sports.io/flags/it.svg",
+        "season": 2024,
+        "round": "Girone A - 25",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 526,
+          "name": "PRO Vercelli",
+          "logo": "https://media.api-sports.io/football/teams/526.png",
+          "winner": null
+        },
+        "away": {
+          "id": 513,
+          "name": "Novara",
+          "logo": "https://media.api-sports.io/football/teams/513.png",
+          "winner": null
+        }
+      },
+      "goals": { "home": 0, "away": 0 },
+      "score": {
+        "halftime": { "home": 0, "away": 0 },
+        "fulltime": { "home": null, "away": null },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1249963,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2025-02-03T19:30:00+00:00",
+        "timestamp": 1738611000,
+        "periods": { "first": 1738611000, "second": null },
+        "venue": {
+          "id": 880,
+          "name": "Stadio Ciro Vigorito",
+          "city": "Benevento"
+        },
+        "status": {
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 42,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 943,
+        "name": "Serie C - Girone C",
+        "country": "Italy",
+        "logo": "https://media.api-sports.io/football/leagues/943.png",
+        "flag": "https://media.api-sports.io/flags/it.svg",
+        "season": 2024,
+        "round": "Girone C - 25",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 506,
+          "name": "Benevento",
+          "logo": "https://media.api-sports.io/football/teams/506.png",
+          "winner": null
+        },
+        "away": {
+          "id": 10138,
+          "name": "SS Monopoli",
+          "logo": "https://media.api-sports.io/football/teams/10138.png",
+          "winner": null
+        }
+      },
+      "goals": { "home": 0, "away": 0 },
+      "score": {
+        "halftime": { "home": 0, "away": 0 },
+        "fulltime": { "home": null, "away": null },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      }
+    }
+  ]
+}

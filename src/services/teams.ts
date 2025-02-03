@@ -1,8 +1,7 @@
-import { setTimeout } from 'timers/promises';
 import teamMockData from './mock-data/search_team.json'
 
-const BASE_URL = "https://api-football-v1.p.rapidapi.com/v3/teams?search=manches";
-const apiKey = import.meta.env.VITE_RAPID_FOOTBALL_API_KEY
+// const BASE_URL = "https://api-football-v1.p.rapidapi.com/v3/teams?search=manches";
+// const apiKey = import.meta.env.VITE_RAPID_FOOTBALL_API_KEY
 interface IGetTeam {
   search?: string
 }
