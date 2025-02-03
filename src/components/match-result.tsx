@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // src/components/MatchCard.tsx
 import { useState } from "react";
+import { BsRecordCircle } from "react-icons/bs";
 import { FaBell } from "react-icons/fa";
 
 type Props = {
@@ -113,8 +114,12 @@ const MatchResult = ({ data }: Props) => {
   };
   return (
     <div className="relative ">
+      <div className="absolute left-3 top-1/2 -translate-y-1/2 ">
+        <BsRecordCircle className="text-score-lose" />
+      </div>
+
       {/* Teams and Score */}
-      <div className="grid grid-cols-3  px-6 bg-background-dark py-2 rounded-lg">
+      <div className="grid grid-cols-3  px-8 bg-background-dark py-2 rounded-lg">
         {/* Home Team */}
         <div className="flex items-center justify-end gap-2 text-right">
           <p className="ml-2 text-sm font-medium truncate">{teams.home.name}</p>
