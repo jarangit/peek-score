@@ -28,11 +28,11 @@ const DateTaps: React.FC<DateTapsProps> = () => {
   const fiveDaysArray: any[] = getFiveDaysArray();
 
   return (
-    <div className="flex justify-between w-full space-x-4">
+    <div className="flex justify-center w-full space-x-2">
       {fiveDaysArray.map((item: any, index: any) => (
         <div
           key={index}
-          className="border  w-full  text-center px-4 py-1 rounded-lg font-semibold"
+          className="text-center px-3 py-1 rounded-md font-semibold bg-black"
         >
           {item.text}
         </div>

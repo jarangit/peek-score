@@ -10,8 +10,8 @@ interface LeagueTabsProps {}
 
 const LeagueTabs: React.FC<LeagueTabsProps> = () => {
   const [listLeagues, setListLeagues] = useState([]);
-  const [isLive, ] = useState(1);
-  const [isActive, ] = useState(2);
+  const [isLive] = useState(1);
+  const [isActive] = useState(2);
 
   const { data }: any = useQuery({
     queryKey: ["leagues"],
@@ -32,7 +32,7 @@ const LeagueTabs: React.FC<LeagueTabsProps> = () => {
       {listLeagues.map((item: any, index: any) => (
         <div
           key={index}
-          className={` relative min-w-14 h-14 rounded-full border border-gray-500 flex items-center justify-center   ${
+          className={` relative min-w-14 h-14 rounded-full border-2 flex items-center justify-center  bg-white/90 ${
             isActive === index ? "border-green-500 bg-green-900/25" : ""
           }
           ${isLive === index ? "border-red-500 bg-red-900/25" : ""}

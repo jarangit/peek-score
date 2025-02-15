@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
 import LeagueTabs from "../../components/league-tab";
-import MatchResults, { IMatch } from "../../components/match-result";
+import MatchResults from "../../components/match-result";
 import SearchBar from "../../components/search-bar";
 import { matchServiceAPI } from "../../services/matchs";
 import DateTaps from "../../components/date-tab";
@@ -30,13 +30,14 @@ function Home() {
   useEffect(() => {
     const getMatchData = async () => {
       const { response }: any = await matchServiceAPI.getLiveMatch();
+     
       setMatchData(response);
     };
     getMatchData();
   }, []);
 
   return (
-    <div className=" container  mx-auto overflow-auto !p-4">
+    <div className="   mx-auto overflow-auto !p-4 ">
       <h1 className="text-2xl font-bold text-center mb-6">PeekScore</h1>
       <div className="relative">
         <SearchBar onSearch={handleSearch} />
@@ -67,20 +68,31 @@ function Home() {
       <div className="mb-3">
         <LeagueTabs />
       </div>
-      <div className="bg-background p-6 mb-3 rounded-lg">
+      <div className="bg-background p-3 mb-3 rounded-lg">
         <DateTaps />
-        <div className=" mt-3 text-center">
-          <button className="bg-white text-black px-1 py-0 rounded-sm font-semibold hover:bg-red-500 hover:text-white border-none">
-            LIVE
-          </button>
-        </div>
       </div>
 
       {matchData && matchData.length ? (
-        <div className="flex flex-col gap-4 ">
-          {matchData.map((match: IMatch, key: any) => (
+        <div className="flex flex-col gap-6  ">
+          {matchData.map((item: any, key: any) => (
             <React.Fragment key={key}>
-              <MatchResults data={match} />
+              <div>
+                <div className="flex gap-3 my-3 items-center">
+                  <img
+                    src={item.league.logo}
+                    alt={item.league.name}
+                    className="w-8 h-8 "
+                  />
+                  <div className="font-bold">{item.league.name}</div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  {item.matches.map((match: any) => (
+                    <React.Fragment>
+                      <MatchResults data={match} />
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
             </React.Fragment>
           ))}
         </div>
