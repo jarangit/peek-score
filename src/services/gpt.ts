@@ -4,8 +4,6 @@
 
 export const fetchGptData = async (msg: string) => {
   if (!msg.trim()) return;
-
-
   try {
     // const response = await axios.post('https://api.openai.com/v1/chat/completions', {
     //   model: "gpt-4o-mini", // ใช้โมเดลที่ถูกต้อง (แก้ไขจาก "gpt-4o-mini")
