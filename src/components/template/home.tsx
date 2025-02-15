@@ -63,9 +63,17 @@ function Home() {
         )}
       </div>
 
-      <div className="bg-background p-6 mb-3 rounded-lg">
+      {/* league */}
+      <div className="mb-3">
         <LeagueTabs />
+      </div>
+      <div className="bg-background p-6 mb-3 rounded-lg">
         <DateTaps />
+        <div className=" mt-3 text-center">
+          <button className="bg-white text-black px-1 py-0 rounded-sm font-semibold hover:bg-red-500 hover:text-white border-none">
+            LIVE
+          </button>
+        </div>
       </div>
 
       {matchData && matchData.length ? (

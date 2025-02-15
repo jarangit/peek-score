@@ -10,7 +10,9 @@ interface LeagueTabsProps {}
 
 const LeagueTabs: React.FC<LeagueTabsProps> = () => {
   const [listLeagues, setListLeagues] = useState([]);
- 
+  const [isLive, ] = useState(1);
+  const [isActive, ] = useState(2);
+
   const { data }: any = useQuery({
     queryKey: ["leagues"],
     queryFn: leaguesService.getAll,
@@ -23,16 +25,28 @@ const LeagueTabs: React.FC<LeagueTabsProps> = () => {
   }, [data]);
 
   return (
-    <div className="flex justify-center flex-wrap w-full gap-3 mb-6">
+    <div className="flex items-center gap-2 overflow-hidden overflow-x-auto w-full">
+      <div className=" min-w-14 h-14 rounded-full border border-gray-500 flex items-center justify-center overflow-hidden bg-white text-black font-bold ">
+        <div>LIVE</div>
+      </div>
       {listLeagues.map((item: any, index: any) => (
         <div
           key={index}
-          className="border  flex justify-center items-center  text-center px-4 py-1 rounded-lg font-semibold"
+          className={` relative min-w-14 h-14 rounded-full border border-gray-500 flex items-center justify-center   ${
+            isActive === index ? "border-green-500 bg-green-900/25" : ""
+          }
+          ${isLive === index ? "border-red-500 bg-red-900/25" : ""}
+          `}
         >
-          <div className="flex gap-2 items-center">
-            <img src={item.league.logo} alt="" width={20} height={20} />
-            <div>{item.league.name}</div>
-          </div>
+          <img src={item.league.logo} alt="" className="object-cover w-8 h-8" />
+
+          {isLive === index && (
+            <div className="absolute bottom-0 z-50">
+              <div className="text-xs bg-red-600 px-1 rounded-sm font-bold">
+                Live
+              </div>
+            </div>
+          )}
         </div>
       ))}
     </div>
