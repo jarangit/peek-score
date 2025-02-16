@@ -30,7 +30,7 @@ function Home() {
   useEffect(() => {
     const getMatchData = async () => {
       const { response }: any = await matchServiceAPI.getLiveMatch();
-     
+
       setMatchData(response);
     };
     getMatchData();
@@ -64,12 +64,12 @@ function Home() {
         )}
       </div>
 
+      <div className="bg-background p-3 mb-3 rounded-lg">
+        <DateTaps />
+      </div>
       {/* league */}
       <div className="mb-3">
         <LeagueTabs />
-      </div>
-      <div className="bg-background p-3 mb-3 rounded-lg">
-        <DateTaps />
       </div>
 
       {matchData && matchData.length ? (
