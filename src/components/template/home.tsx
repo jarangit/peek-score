@@ -10,6 +10,7 @@ import { teamsServiceAPI } from "../../services/teams";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useDebounce } from "../../services/hooks/debounce";
+import { fixtureService } from "../../services/fixtures";
 // import { fetchGptData } from "./services/gpt";
 
 function Home() {
@@ -17,6 +18,10 @@ function Home() {
   const [search, setSearch] = useState("");
   const debouncedQuery = useDebounce(search, 500); // ใช้ Debounce 500ms
 
+  const { data: fixtures } = useQuery({
+    queryKey: ["getFixtures"],
+    queryFn: () => fixtureService.getAll(),
+  });
   const { data: teamData } = useQuery({
     queryKey: ["getTeams", debouncedQuery],
     queryFn: () => teamsServiceAPI.getTeams({ search: debouncedQuery }),
@@ -28,14 +33,15 @@ function Home() {
   };
 
   useEffect(() => {
-    const getMatchData = async () => {
-      const { response }: any = await matchServiceAPI.getLiveMatch();
-
-      setMatchData(response);
-    };
-    getMatchData();
-  }, []);
-
+    // const getMatchData = async () => {
+    //   const { response }: any = await matchServiceAPI.getLiveMatch();
+    //   setMatchData(response);
+    // };
+    // getMatchData();
+    if (fixtures) {
+      setMatchData(fixtures.response);
+    }
+  }, [fixtures]);
   return (
     <div className="   mx-auto overflow-auto !p-4 ">
       <h1 className="text-2xl font-bold text-center mb-6">PeekScore</h1>
