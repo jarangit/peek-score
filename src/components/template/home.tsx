@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import LeagueTabs from "../../components/league-tab";
 import MatchResults from "../../components/match-result";
 import SearchBar from "../../components/search-bar";
-import { matchServiceAPI } from "../../services/matchs";
 import DateTaps from "../../components/date-tab";
 import { teamsServiceAPI } from "../../services/teams";
 import { useQuery } from "@tanstack/react-query";

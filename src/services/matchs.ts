@@ -46,7 +46,7 @@ export const matchServiceAPI = {
   },
   getLiveMatch: async () => {
     const league = await leaguesService.getAll()
-    const leagueIds = league.response.map((item) => item.league.id)
+    const leagueIds = league.response.map((item: { league: { id: any; }; }) => item.league.id)
     const filter = mockLiveMatchData.response.filter((item: any) => leagueIds.includes(item.league.id))
     const groupedMatches = matchServiceAPI.groupByLeagueToArray(filter); // ใช้ matchesData เป็น JSON ที่คุณให้มา
 
