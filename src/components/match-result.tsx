@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { BsRecordCircle } from "react-icons/bs";
 import { FaBell } from "react-icons/fa";
+import { format } from "date-fns";
 
 type Props = {
   data: IMatch;
@@ -119,7 +120,7 @@ const MatchResult = ({ data }: Props) => {
       </div>
 
       {/* Teams and Score */}
-      <div className="grid grid-cols-3  px-8 bg-background-dark py-2 rounded-lg">
+      <div className="grid grid-cols-3  px-8 bg-background-dark py-2 rounded-lg items-center">
         {/* Home Team */}
         <div className="flex items-center justify-end gap-2 text-right">
           <p className="ml-2 text-sm font-medium truncate">{teams.home.name}</p>
@@ -130,13 +131,19 @@ const MatchResult = ({ data }: Props) => {
           />
         </div>
         {/* Score */}
-        <div className="text-center text-lg font-bold">
-          <div>
-            {goals.home} - {goals.away}
-          </div>
-          <div className="text-xs text-score-draw">
-            {fixture.status.elapsed}'
-          </div>
+        <div className="text-center">
+          {fixture.status.short !== "NS" ? (
+            <>
+              <div>
+                {goals.home} - {goals.away}
+              </div>
+              <div className="text-xs text-score-draw">
+                {fixture.status.elapsed}`
+              </div>
+            </>
+          ) : (
+            <div className="!text-xs">{format(new Date(fixture.date), "HH:mm")}</div>
+          )}
         </div>
         {/* Away Team */}
         <div className="flex items-center justify-start gap-2">

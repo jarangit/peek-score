@@ -13,13 +13,14 @@ import { fixtureService } from "../../services/fixtures";
 // import { fetchGptData } from "./services/gpt";
 
 function Home() {
+  const today = new Date();
   const [matchData, setMatchData] = useState<any | null>(null);
   const [search, setSearch] = useState("");
   const debouncedQuery = useDebounce(search, 500); // ใช้ Debounce 500ms
 
   const { data: fixtures } = useQuery({
     queryKey: ["getFixtures"],
-    queryFn: () => fixtureService.getAll(),
+    queryFn: () => fixtureService.getAll({ date: today.toISOString().split("T")[0] }),
   });
   const { data: teamData } = useQuery({
     queryKey: ["getTeams", debouncedQuery],

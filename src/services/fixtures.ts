@@ -2,9 +2,9 @@
 import axiosInstance from "./axiosInstance";
 
 export const fixtureService = {
-  getAll: async () => {
+  getAll: async ({ date }: { date: string }) => {
     try {
-      const response = await axiosInstance.get("/fixtures?date=2025-03-08");
+      const response = await axiosInstance.get(`/fixtures?date=${date}`);
       if (response) {
         return response.data;
       }
