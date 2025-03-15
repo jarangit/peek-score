@@ -17,7 +17,16 @@ const LeagueTabs: React.FC<LeagueTabsProps> = () => {
     queryKey: ["leagues"],
     queryFn: leaguesService.getAll,
   });
-
+  const scrollToId = (id: string) => {
+    console.log('%cMyProject%cline:20%cid', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(3, 101, 100);padding:3px;border-radius:2px', id)
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   useEffect(() => {
     if (data) {
       setListLeagues(data?.response);
@@ -37,6 +46,7 @@ const LeagueTabs: React.FC<LeagueTabsProps> = () => {
           }
           ${isLive === index ? "border-red-500 bg-red-900/25" : ""}
           `}
+          onClick={() => scrollToId(item.league.name)}
         >
           <img src={item.league.logo} alt="" className="object-cover w-8 h-8" />
 
