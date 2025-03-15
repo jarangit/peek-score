@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import MatchResult from "../match-result";
+import LeagueHeader from "../molecule/leagure-header";
 
 type Props = {
   allMatchesList: any[];
@@ -41,14 +42,7 @@ const FavMatchesList = ({ allMatchesList }: Props) => {
         {matchData?.map((item: any, key) => (
           <React.Fragment key={key}>
             <div>
-              <div className="flex gap-3 my-3 items-center">
-                <img
-                  src={item.league.logo}
-                  alt={item.league.name}
-                  className="w-8 h-8 "
-                />
-                <div className="font-bold">{item.league.name}</div>
-              </div>
+              <LeagueHeader data={item.league} />
               <div className="flex flex-col gap-2">
                 {item.matches.map((match: any, matchKey: any) => (
                   <React.Fragment key={matchKey}>

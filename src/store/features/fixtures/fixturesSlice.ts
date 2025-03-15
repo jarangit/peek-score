@@ -21,7 +21,7 @@ export const fixturesSlice = createSlice({
           state.favMatches.push(actions.payload);
         }
       } finally {
-        chrome.storage.local.set({
+        chrome?.storage?.local.set({
           ["favMatches"]: JSON.stringify(state.favMatches),
         });
         window.localStorage.setItem(

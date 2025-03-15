@@ -19,6 +19,7 @@ import { addFav } from "../../store/features/fixtures/fixturesSlice";
 import { FaInbox } from "react-icons/fa";
 // import { setStorageItem } from "../../utils/storage";
 import { useChromeStorage } from "../../hooks/useLocalExtension";
+import LeagueHeader from "../molecule/leagure-header";
 // import { fetchGptData } from "./services/gpt";
 
 function Home() {
@@ -68,11 +69,11 @@ function Home() {
   }, [fixtures, currentFavMatches]);
   return (
     <div className="   mx-auto overflow-auto !p-4 ">
-         <div>
-      <h1>🔥 Chrome Extension</h1>
-      <p>📌 Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>➕ เพิ่ม</button>
-    </div>
+      <div>
+        <h1>🔥 Chrome Extension</h1>
+        <p>📌 Count: {count}</p>
+        <button onClick={() => setCount(count + 1)}>➕ เพิ่ม</button>
+      </div>
       <div className=" relative">
         <button
           className=" p-1 px-2 rounded-sm bg-gray-700 absolute right-0"
@@ -128,14 +129,7 @@ function Home() {
               {matchData.map((item: any, key: any) => (
                 <React.Fragment key={key}>
                   <div>
-                    <div className="flex gap-3 my-3 items-center">
-                      <img
-                        src={item.league.logo}
-                        alt={item.league.name}
-                        className="w-8 h-8 "
-                      />
-                      <div className="font-bold">{item.league.name}</div>
-                    </div>
+                    <LeagueHeader data={item.league} />
                     <div className="flex flex-col gap-2">
                       {item.matches.map((match: any, matchKey: any) => (
                         <React.Fragment key={matchKey}>
