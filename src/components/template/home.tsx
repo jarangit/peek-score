@@ -10,17 +10,36 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useDebounce } from "../../services/hooks/debounce";
 import { fixtureService } from "../../services/fixtures";
+// import { useWebSocket } from "../../hooks/useWebSocket";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import FavMatchesList from "../oganism/favMatchesList";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { addFav } from "../../store/features/fixtures/fixturesSlice";
+import { FaInbox } from "react-icons/fa";
+// import { setStorageItem } from "../../utils/storage";
+import { useChromeStorage } from "../../hooks/useLocalExtension";
 // import { fetchGptData } from "./services/gpt";
 
 function Home() {
+  const [count, setCount] = useChromeStorage("count", 0);
+
+  const dispatch = useDispatch();
+  const favMatches = useSelector(
+    (state: RootState) => state.fixtures.favMatches
+  );
+  // const fixtureSocket: any = useWebSocket("newFixtures");
   const today = new Date();
+  const [currentFavMatches] = useLocalStorage("favMatches", []);
   const [matchData, setMatchData] = useState<any | null>(null);
   const [search, setSearch] = useState("");
   const debouncedQuery = useDebounce(search, 500); // ใช้ Debounce 500ms
+  const [isFavTab, setIsFavTab] = useState(false);
 
   const { data: fixtures } = useQuery({
     queryKey: ["getFixtures"],
-    queryFn: () => fixtureService.getAll({ date: today.toISOString().split("T")[0] }),
+    queryFn: () =>
+      fixtureService.getAll({ date: today.toISOString().split("T")[0] }),
   });
   const { data: teamData } = useQuery({
     queryKey: ["getTeams", debouncedQuery],
@@ -38,13 +57,35 @@ function Home() {
     //   setMatchData(response);
     // };
     // getMatchData();
-    if (fixtures) {
+    if (currentFavMatches?.length) {
+      currentFavMatches.forEach((id: number) => {
+        dispatch(addFav(id));
+      });
+    }
+    if (fixtures?.response) {
       setMatchData(fixtures.response);
     }
-  }, [fixtures]);
+  }, [fixtures, currentFavMatches]);
   return (
     <div className="   mx-auto overflow-auto !p-4 ">
-      <h1 className="text-2xl font-bold text-center mb-6">PeekScore</h1>
+         <div>
+      <h1>🔥 Chrome Extension</h1>
+      <p>📌 Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>➕ เพิ่ม</button>
+    </div>
+      <div className=" relative">
+        <button
+          className=" p-1 px-2 rounded-sm bg-gray-700 absolute right-0"
+          onClick={() => setIsFavTab(!isFavTab)}
+        >
+          <div className="flex items-center gap-2">
+            {favMatches?.length}
+            <FaInbox />
+          </div>
+        </button>
+        <h1 className="text-2xl font-bold text-center mb-6">PeekScore</h1>
+      </div>
+      {/* search */}
       <div className="relative">
         <SearchBar onSearch={handleSearch} />
 
@@ -73,37 +114,48 @@ function Home() {
       <div className="bg-background p-3 mb-3 rounded-lg">
         <DateTaps />
       </div>
-      {/* league */}
-      <div className="mb-3">
-        <LeagueTabs />
-      </div>
 
-      {matchData && matchData.length ? (
-        <div className="flex flex-col gap-6  ">
-          {matchData.map((item: any, key: any) => (
-            <React.Fragment key={key}>
-              <div>
-                <div className="flex gap-3 my-3 items-center">
-                  <img
-                    src={item.league.logo}
-                    alt={item.league.name}
-                    className="w-8 h-8 "
-                  />
-                  <div className="font-bold">{item.league.name}</div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  {item.matches.map((match: any) => (
-                    <React.Fragment>
-                      <MatchResults data={match} />
-                    </React.Fragment>
-                  ))}
-                </div>
-              </div>
-            </React.Fragment>
-          ))}
-        </div>
+      {/* home layout */}
+      {!isFavTab ? (
+        <section>
+          {/* league */}
+          <div className="mb-3">
+            <LeagueTabs />
+          </div>
+
+          {matchData && matchData.length ? (
+            <div className="flex flex-col gap-6  ">
+              {matchData.map((item: any, key: any) => (
+                <React.Fragment key={key}>
+                  <div>
+                    <div className="flex gap-3 my-3 items-center">
+                      <img
+                        src={item.league.logo}
+                        alt={item.league.name}
+                        className="w-8 h-8 "
+                      />
+                      <div className="font-bold">{item.league.name}</div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      {item.matches.map((match: any, matchKey: any) => (
+                        <React.Fragment key={matchKey}>
+                          <MatchResults
+                            data={match}
+                            isFav={favMatches.includes(match.fixture.id)}
+                          />
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center">Loading...</p>
+          )}
+        </section>
       ) : (
-        <p className="text-center">Loading...</p>
+        <FavMatchesList allMatchesList={matchData} />
       )}
     </div>
   );

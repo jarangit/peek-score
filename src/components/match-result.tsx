@@ -1,12 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // src/components/MatchCard.tsx
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsRecordCircle } from "react-icons/bs";
 import { FaBell } from "react-icons/fa";
 import { format } from "date-fns";
+// import { useFavoriteMatches } from "../hooks/useFavMatches";
+import { useDispatch } from "react-redux";
+import { addFav } from "../store/features/fixtures/fixturesSlice";
 
 type Props = {
   data: IMatch;
+  isFav?: boolean;
 };
 export interface IMatch {
   fixture: Fixture;
@@ -107,12 +111,23 @@ export interface Penalty {
   away: any;
 }
 
-const MatchResult = ({ data }: Props) => {
+const MatchResult = ({ data, isFav = false }: Props) => {
+  const dispatch = useDispatch();
   const { teams, goals, fixture } = data;
+  // const { addFavorite } = useFavoriteMatches();
+
   const [toggleNotice, setToggleNotice] = useState(false);
-  const onToggleNotice = () => {
+  const onToggleNotice = (id: number) => {
+    console.log(id);
+    dispatch(addFav(id));
     setToggleNotice(!toggleNotice);
   };
+  useEffect(() => {
+    if (isFav) {
+      setToggleNotice(isFav);
+    }
+  }, [isFav]);
+
   return (
     <div className="relative ">
       <div className="absolute left-3 top-1/2 -translate-y-1/2 ">
@@ -142,7 +157,9 @@ const MatchResult = ({ data }: Props) => {
               </div>
             </>
           ) : (
-            <div className="!text-xs">{format(new Date(fixture.date), "HH:mm")}</div>
+            <div className="!text-xs">
+              {format(new Date(fixture.date), "HH:mm")}
+            </div>
           )}
         </div>
         {/* Away Team */}
@@ -166,7 +183,7 @@ const MatchResult = ({ data }: Props) => {
       <div className=" absolute right-3 top-[40%] cursor-pointer">
         <FaBell
           className={`${toggleNotice ? "text-team-away" : "text-gray-500"}`}
-          onClick={onToggleNotice}
+          onClick={() => onToggleNotice(data?.fixture?.id)}
         />
       </div>
     </div>
