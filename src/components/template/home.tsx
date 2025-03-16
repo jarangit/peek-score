@@ -20,6 +20,7 @@ import { FaInbox } from "react-icons/fa";
 // import { setStorageItem } from "../../utils/storage";
 import { useChromeStorage } from "../../hooks/useLocalExtension";
 import LeagueHeader from "../molecule/leagure-header";
+import { Link } from "react-router-dom";
 // import { fetchGptData } from "./services/gpt";
 
 function Home() {
@@ -90,25 +91,18 @@ function Home() {
   }, [fixtures, currentFavMatches]);
   return (
     <div className="   mx-auto overflow-auto !p-4 ">
-      <button onClick={sendNotification}>📢 ส่งแจ้งเตือน</button>
-
-      <div>
+      <Link to="/league/123">Test</Link>
+      {/* <div>
         <h1>🔥 Chrome Extension</h1>
         <p>📌 Count: {count}</p>
         <button onClick={() => setCount(count + 1)}>➕ เพิ่ม</button>
-      </div>
+      </div> */}
       <div className=" relative">
-        <button
-          className=" p-1 px-2 rounded-sm bg-gray-700 absolute right-0"
-          onClick={() => setIsFavTab(!isFavTab)}
-        >
-          <div className="flex items-center gap-2">
-            {favMatches?.length}
-            <FaInbox />
-          </div>
-        </button>
+      
         <div className="flex justify-center items-center  gap-3 mb-4">
-          <div className=" font-bold text-3xl"><span className="text-primary">PEEK</span>SCORE</div>
+          <div className=" font-bold text-3xl">
+            <span className="text-primary">PEEK</span>SCORE
+          </div>
         </div>
       </div>
       {/* search */}
