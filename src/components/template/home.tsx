@@ -52,6 +52,27 @@ function Home() {
     setSearch(data); // อัปเดต searchTerm เพื่อ Trigger useQuery
   };
 
+  const sendNotification = () => {
+    if (typeof chrome !== "undefined" && chrome.runtime) {
+      chrome.runtime.sendMessage(
+        {
+          type: "NOTIFY",
+          title: "📢 แจ้งเตือน!",
+          message: "ข้อความนี้ถูกส่งจาก React!",
+        },
+        (response) => {
+          if (chrome.runtime.lastError) {
+            console.error("❌ ส่งแจ้งเตือนไม่สำเร็จ", chrome.runtime.lastError);
+          } else {
+            console.log("✅ แจ้งเตือนสำเร็จ:", response);
+          }
+        }
+      );
+    } else {
+      console.error("❌ Chrome API ไม่พร้อมใช้งาน");
+    }
+  };
+
   useEffect(() => {
     // const getMatchData = async () => {
     //   const { response }: any = await matchServiceAPI.getLiveMatch();
@@ -69,6 +90,8 @@ function Home() {
   }, [fixtures, currentFavMatches]);
   return (
     <div className="   mx-auto overflow-auto !p-4 ">
+      <button onClick={sendNotification}>📢 ส่งแจ้งเตือน</button>
+
       <div>
         <h1>🔥 Chrome Extension</h1>
         <p>📌 Count: {count}</p>
@@ -84,7 +107,9 @@ function Home() {
             <FaInbox />
           </div>
         </button>
-        <h1 className="text-2xl font-bold text-center mb-6">PeekScore</h1>
+        <div className="flex justify-center items-center  gap-3 mb-4">
+          <div className=" font-bold text-3xl"><span className="text-primary">PEEK</span>SCORE</div>
+        </div>
       </div>
       {/* search */}
       <div className="relative">

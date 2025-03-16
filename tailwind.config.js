@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#16A34A", // สีหลัก (เช่น สีสนามหญ้า)
+        primary: "#d9ff0f", // สีหลัก (เช่น สีสนามหญ้า)
         secondary: "#1E40AF", // สีน้ำเงิน (สำหรับลีกยุโรป)
         background: {
           DEFAULT: "#202022", // พื้นหลัง Light Mode

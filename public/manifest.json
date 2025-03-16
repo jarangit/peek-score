@@ -1,10 +1,24 @@
 {
   "manifest_version": 3,
   "version": "1.0.0",
-  "name": "My Vite Extension",
+  "name": "Peek score",
   "action": {
-    "default_popup": "index.html"
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icons/ps-icon.png",
+      "48": "icons/ps-icon.png",
+      "128": "icons/ps-icon.png"
+    }
   },
-  "permissions": ["scripting", "storage", "tabs"],
-  "host_permissions": ["http://*/*", "https://*/*", "*://*/*"]
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["scripting", "storage", "tabs", "notifications"],
+  "host_permissions": ["http://*/*", "https://*/*", "*://*/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
