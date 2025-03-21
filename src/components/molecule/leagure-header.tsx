@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type Props = {
   data: ILeague;
 };
@@ -13,7 +15,7 @@ interface ILeague {
 const LeagueHeader = ({ data }: Props) => {
   const { name, logo } = data;
   return (
-    <div>
+    <Link to="/league/123">
       <div className="flex gap-3 my-3 items-center">
         <img
           src={logo}
@@ -22,7 +24,7 @@ const LeagueHeader = ({ data }: Props) => {
         />
         <div className="font-bold">{name}</div>
       </div>
-    </div>
+    </Link>
   );
 };
 

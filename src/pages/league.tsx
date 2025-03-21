@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Table from "../components/oganism/table";
+import { render } from "react-dom";
 
 const league = {
   id: 39,
@@ -918,23 +919,35 @@ const league = {
 };
 
 const columns = [
-  { key: "id", header: "No." },
-  { key: "name", header: "Team" },
+  {
+    key: "id",
+    header: "No.",
+    render: (value: any, row: any) => (
+      <div className={`${value < 5 ? "border-b-2 border-green-400" : ""}`}>
+        {value}
+      </div>
+    ),
+  },
+  {
+    key: "name",
+    header: "Team",
+    render: (value: any, row: any) => (
+      <div className="flex gap-4 items-center justify-items-start">
+        <div className="flex w-4">
+          <img className="h-4" src={row.logo} alt="" />
+        </div>
+        <div className=" text-nowrap text-left">{value}</div>
+      </div>
+    ),
+  },
   { key: "p", header: "P" },
-  { key: "2", header: "W" },
+  { key: "w", header: "W" },
   { key: "d", header: "D" },
-  { key: "l", header: "L" },
-  { key: "f", header: "F" },
-  { key: "a", header: "A" },
+  // { key: "l", header: "L" },
+  // { key: "f", header: "F" },
+  // { key: "a", header: "A" },
   { key: "gd", header: "GD" },
   { key: "pts", header: "PTS" },
-  // {
-  //   key: "actions",
-  //   header: "การกระทำ",
-  //   render: (value: any, row: any) => (
-  //     <button onClick={() => alert(`ดูโปรไฟล์ ${row.name}`)}>ดูโปรไฟล์</button>
-  //   ),
-  // },
 ];
 
 // 2️⃣ ใส่ข้อมูล (Data)
@@ -953,6 +966,7 @@ const LeaguePage = () => {
       return {
         id: item.rank,
         name: item.team.name,
+        logo: item.team.logo,
         p: item.all.played,
         w: item.all.win,
         d: item.all.draw,
@@ -978,8 +992,24 @@ const LeaguePage = () => {
   }, []);
 
   return (
-    <div>
-      Name {id}
+    <div className="flex flex-col gap-4 w-100">
+      <div className="bg-background p-4 rounded-md">
+        <div className="flex items-center gap-4">
+          <div className="bg-white/70 w-fit p-1 rounded-full">
+            <img src={league.logo} alt="" className="h-12" />
+          </div>
+          <div>
+            <div className="font-bold">{league.name}</div>
+            <div className="flex items-center gap-2">
+              <div>
+                <img src={league.flag} alt="" className="h-4" />
+              </div>
+              <div>{league.country}</div>
+              <div>{league.season}</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div>
         <Table columns={columns} data={contentTable} />
       </div>

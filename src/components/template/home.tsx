@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import LeagueTabs from "../../components/league-tab";
 import MatchResults from "../../components/match-result";
-import SearchBar from "../../components/search-bar";
 import DateTaps from "../../components/date-tab";
 import { teamsServiceAPI } from "../../services/teams";
 import { useQuery } from "@tanstack/react-query";
@@ -16,15 +15,11 @@ import { RootState } from "../../store/store";
 import FavMatchesList from "../oganism/favMatchesList";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { addFav } from "../../store/features/fixtures/fixturesSlice";
-import { FaInbox } from "react-icons/fa";
 // import { setStorageItem } from "../../utils/storage";
-import { useChromeStorage } from "../../hooks/useLocalExtension";
 import LeagueHeader from "../molecule/leagure-header";
-import { Link } from "react-router-dom";
 // import { fetchGptData } from "./services/gpt";
 
 function Home() {
-  const [count, setCount] = useChromeStorage("count", 0);
 
   const dispatch = useDispatch();
   const favMatches = useSelector(
@@ -91,24 +86,7 @@ function Home() {
   }, [fixtures, currentFavMatches]);
   return (
     <div className="   mx-auto overflow-auto !p-4 ">
-      <Link to="/league/123">Test</Link>
-      {/* <div>
-        <h1>🔥 Chrome Extension</h1>
-        <p>📌 Count: {count}</p>
-        <button onClick={() => setCount(count + 1)}>➕ เพิ่ม</button>
-      </div> */}
-      <div className=" relative">
-      
-        <div className="flex justify-center items-center  gap-3 mb-4">
-          <div className=" font-bold text-3xl">
-            <span className="text-primary">PEEK</span>SCORE
-          </div>
-        </div>
-      </div>
-      {/* search */}
       <div className="relative">
-        <SearchBar onSearch={handleSearch} />
-
         {teamData ? (
           <div className="flex flex-col gap-2  p-4 rounded-lg absolute w-full bg-black/40 backdrop-blur-xl border-gray-700 border z-[9999]">
             {teamData
@@ -148,7 +126,7 @@ function Home() {
               {matchData.map((item: any, key: any) => (
                 <React.Fragment key={key}>
                   <div id={item.league.name}>
-                    <LeagueHeader data={item.league} />
+                    <LeagueHeader data={item.league}/>
                     <div className="flex flex-col gap-2">
                       {item.matches.map((match: any, matchKey: any) => (
                         <React.Fragment key={matchKey}>

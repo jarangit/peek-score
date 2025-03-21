@@ -1,28 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // src/components/Table.jsx
-import React from "react";
 
 const Table = ({ columns, data }: any) => {
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full border-collapse border border-gray-300">
+    <div className="overflow-x-auto p-4 bg-background rounded-lg shadow-md">
+      <table className="min-w-full border-collapse">
         <thead>
           <tr className="bg-background-dark">
             {columns.map((col: any) => (
-              <th
-                key={col.key}
-                className="border border-gray-300 px-4 py-2 text-left"
-              >
+              <th key={col.key} className=" text-center">
                 {col.header}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data.map((row: any, rowIndex: any) => (
+          {data?.map((row: any, rowIndex: any) => (
             <tr key={rowIndex} className="">
               {columns.map((col: any) => (
-                <td key={col.key} className="border border-gray-300 px-4 py-2">
+                <td key={col.key} className=" text-sm text-center p-2">
                   {col.render ? col.render(row[col.key], row) : row[col.key]}
                 </td>
               ))}
