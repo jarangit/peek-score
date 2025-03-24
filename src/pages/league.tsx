@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Table from "../components/oganism/table";
 import { render } from "react-dom";
+import Tabs from "../components/molecule/tab/tabs";
 
 const league = {
   id: 39,
@@ -923,7 +924,11 @@ const columns = [
     key: "id",
     header: "No.",
     render: (value: any, row: any) => (
-      <div className={`${value < 5 ? "border-b-2 border-green-400" : ""}`}>
+      <div
+        className={`${value < 5 ? "border-b-2 border-green-400" : ""} ${
+          value > 17 ? "border-b-2 border-red-400" : ""
+        } `}
+      >
         {value}
       </div>
     ),
@@ -961,6 +966,24 @@ const LeaguePage = () => {
   const { id } = useParams();
   const [contentTable, setContentTable] = useState<any>();
 
+  const tabData = [
+    {
+      label: "Overview",
+      content: <Table columns={columns} data={contentTable} />,
+    },
+    {
+      label: "Table",
+      content: <div>ข้อมูลโปรแกรมการแข่งขัน</div>,
+    },
+    {
+      label: "Matches",
+      content: <div>ข้อมูลทีมที่คุณติดตาม</div>,
+    },
+    {
+      label: "TOP",
+      content: <div>ข้อมูลทีมที่คุณติดตาม</div>,
+    },
+  ];
   const mapTable = () => {
     const content = league.standings[0].map((item, index) => {
       return {
@@ -977,13 +1000,6 @@ const LeaguePage = () => {
         pts: item.points,
       };
     });
-    console.log(
-      "%cMyProject%cline:954%ccontent",
-      "color:#fff;background:#ee6f57;padding:3px;border-radius:2px",
-      "color:#fff;background:#1f3c88;padding:3px;border-radius:2px",
-      "color:#fff;background:rgb(237, 222, 139);padding:3px;border-radius:2px",
-      content
-    );
     setContentTable(content);
   };
 
@@ -1010,9 +1026,9 @@ const LeaguePage = () => {
           </div>
         </div>
       </div>
-      <div>
-        <Table columns={columns} data={contentTable} />
-      </div>
+
+      {/* tabs */}
+      <Tabs tabs={tabData} />
     </div>
   );
 };
