@@ -938,8 +938,8 @@ const columns = [
     header: "Team",
     render: (value: any, row: any) => (
       <div className="flex gap-4 items-center justify-items-start">
-        <div className="flex w-4">
-          <img className="h-4" src={row.logo} alt="" />
+        <div className="flex w-5">
+          <img className="h-5" src={row.logo} alt="" />
         </div>
         <div className=" text-nowrap text-left">{value}</div>
       </div>
@@ -969,11 +969,13 @@ const LeaguePage = () => {
   const tabData = [
     {
       label: "Overview",
-      content: <Table columns={columns} data={contentTable} />,
+      content: (
+        <Table columns={columns} data={contentTable} _isCollapsed={true} />
+      ),
     },
     {
       label: "Table",
-      content: <div>ข้อมูลโปรแกรมการแข่งขัน</div>,
+      content: <Table columns={columns} data={contentTable} />,
     },
     {
       label: "Matches",
