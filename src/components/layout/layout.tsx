@@ -39,7 +39,7 @@ const Layout = () => {
           </button>
           <div className="flex justify-center items-center  gap-3 mb-4"  >
             <Link to="/" className=" font-bold text-3xl text-white hover:text-white">
-              <span className="text-primary">PEEK</span>SCORE
+              <span className="text-mint-500">PEEK</span>SCORE
             </Link>
           </div>
         </div>

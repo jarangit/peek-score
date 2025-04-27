@@ -1,29 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+
+const token = require("./tailwind-token.config");
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {
-        primary: "#d9ff0f", // สีหลัก (เช่น สีสนามหญ้า)
-        secondary: "#1E40AF", // สีน้ำเงิน (สำหรับลีกยุโรป)
-        background: {
-          DEFAULT: "#202022", // พื้นหลัง Light Mode
-          dark: "#202022", // พื้นหลัง Dark Mode
-        },
-        text: {
-          DEFAULT: "#1E293B", // ข้อความปกติ
-          dark: "#E5E7EB", // ข้อความใน Dark Mode
-        },
-        score: {
-          win: "#16A34A", // สีเขียวเมื่อทีมชนะ
-          lose: "#DC2626", // สีแดงเมื่อทีมแพ้
-          draw: "#F59E0B", // สีเหลืองเมื่อเสมอ
-        },
-        team: {
-          home: "#3B82F6", // สีน้ำเงินสำหรับทีมเจ้าบ้าน
-          away: "#EF4444", // สีแดงสำหรับทีมเยือน
-        },
-      },
+      ...token.theme.extend,
     },
   },
   plugins: [],

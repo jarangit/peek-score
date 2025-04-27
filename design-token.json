@@ -1,0 +1,320 @@
+{
+  "color": {
+    "mint": {
+      "100": {
+        "value": "#f2fff9",
+        "type": "color"
+      },
+      "200": {
+        "value": "#ecfff5",
+        "type": "color"
+      },
+      "300": {
+        "value": "#d8ffeb",
+        "type": "color"
+      },
+      "400": {
+        "value": "#80ffbf",
+        "type": "color"
+      },
+      "500": {
+        "value": "#73e6ac",
+        "type": "color"
+      },
+      "600": {
+        "value": "#66cc99",
+        "type": "color"
+      },
+      "700": {
+        "value": "#60bf8f",
+        "type": "color"
+      },
+      "800": {
+        "value": "#4d9973",
+        "type": "color"
+      },
+      "850": {
+        "value": "#3a7356",
+        "type": "color"
+      },
+      "900": {
+        "value": "#2d5943",
+        "type": "color"
+      }
+    },
+    "blue": {
+      "100": {
+        "value": "#e6e7f2",
+        "type": "color"
+      },
+      "200": {
+        "value": "#dadbec",
+        "type": "color"
+      },
+      "300": {
+        "value": "#b2b5d7",
+        "type": "color"
+      },
+      "400": {
+        "value": "#070f7e",
+        "type": "color"
+      },
+      "500": {
+        "value": "#060e71",
+        "type": "color"
+      },
+      "600": {
+        "value": "#060c65",
+        "type": "color"
+      },
+      "700": {
+        "value": "#050b5f",
+        "type": "color"
+      },
+      "800": {
+        "value": "#04094c",
+        "type": "color"
+      },
+      "850": {
+        "value": "#030739",
+        "type": "color"
+      },
+      "900": {
+        "value": "#02052c",
+        "type": "color"
+      }
+    },
+    "gray": {
+      "100": {
+        "value": "#f0f0f0",
+        "type": "color"
+      },
+      "200": {
+        "value": "#e8e8e8",
+        "type": "color"
+      },
+      "300": {
+        "value": "#d0d0d0",
+        "type": "color"
+      },
+      "400": {
+        "value": "#666666",
+        "type": "color"
+      },
+      "500": {
+        "value": "#5c5c5c",
+        "type": "color"
+      },
+      "600": {
+        "value": "#525252",
+        "type": "color"
+      },
+      "700": {
+        "value": "#4d4d4d",
+        "type": "color"
+      },
+      "800": {
+        "value": "#3d3d3d",
+        "type": "color"
+      },
+      "850": {
+        "value": "#2e2e2e",
+        "type": "color"
+      },
+      "900": {
+        "value": "#242424",
+        "type": "color"
+      }
+    },
+    "white": {
+      "value": "#fff",
+      "type": "color"
+    },
+    "black": {
+      "value": "#000",
+      "type": "color"
+    }
+  },
+  "spacing": {
+    "spacing-0": {
+      "value": "0px",
+      "type": "spacing"
+    },
+    "spacing-4": {
+      "value": "4px",
+      "type": "spacing"
+    },
+    "spacing-8": {
+      "value": "8px",
+      "type": "spacing"
+    },
+    "spacing-12": {
+      "value": "12px",
+      "type": "spacing"
+    },
+    "spacing-16": {
+      "value": "16px",
+      "type": "spacing"
+    },
+    "spacing-20": {
+      "value": "20px",
+      "type": "spacing"
+    },
+    "spacing-24": {
+      "value": "24px",
+      "type": "spacing"
+    },
+    "spacing-32": {
+      "value": "32px",
+      "type": "spacing"
+    },
+    "spacing-40": {
+      "value": "40px",
+      "type": "spacing"
+    },
+    "spacing-64": {
+      "value": "64px",
+      "type": "spacing"
+    }
+  },
+  "borderWidth": {
+    "border-width-0": {
+      "value": "0px",
+      "type": "borderWidth"
+    },
+    "border-width-1": {
+      "value": "1px",
+      "type": "borderWidth"
+    },
+    "border-width-2": {
+      "value": "2px",
+      "type": "borderWidth"
+    },
+    "border-width-4": {
+      "value": "4px",
+      "type": "borderWidth"
+    }
+  },
+  "borderRadius": {
+    "radius-none": {
+      "value": "0px",
+      "type": "borderRadius"
+    },
+    "radius-xs": {
+      "value": "2px",
+      "type": "borderRadius"
+    },
+    "radius-sm": {
+      "value": "4px",
+      "type": "borderRadius"
+    },
+    "radius-md": {
+      "value": "8px",
+      "type": "borderRadius"
+    },
+    "radius-lg": {
+      "value": "16px",
+      "type": "borderRadius"
+    },
+    "radius-full": {
+      "value": "999px",
+      "type": "borderRadius"
+    }
+  },
+  "borderStyle": {
+    "border-style-solid": {
+      "value": "solid",
+      "type": "borderStyle"
+    },
+    "border-style-dashed": {
+      "value": "dashed",
+      "type": "borderStyle"
+    }
+  },
+  "fontFamilies": {
+    "inter": {
+      "type": "fontFamilies",
+      "value": "Inter"
+    },
+    "roboto": {
+      "type": "fontFamilies",
+      "value": "Roboto"
+    }
+  },
+  "fontSizes": {
+    "font-size-12": {
+      "type": "fontSizes",
+      "value": "12"
+    },
+    "font-size-14": {
+      "type": "fontSizes",
+      "value": "14"
+    },
+    "font-size-16": {
+      "type": "fontSizes",
+      "value": "16"
+    },
+    "font-size-20": {
+      "type": "fontSizes",
+      "value": "20"
+    },
+    "font-size-24": {
+      "type": "fontSizes",
+      "value": "24"
+    },
+    "font-size-32": {
+      "type": "fontSizes",
+      "value": "32"
+    }
+  },
+  "fontWeights": {
+    "regular": {
+      "type": "fontWeights",
+      "value": "400"
+    },
+    "medium": {
+      "type": "fontWeights",
+      "value": "500"
+    },
+    "semibold": {
+      "type": "fontWeights",
+      "value": "600"
+    },
+    "bold": {
+      "type": "fontWeights",
+      "value": "700"
+    }
+  },
+  "lineHeights": {
+    "line-height-16": {
+      "type": "lineHeights",
+      "value": "16"
+    },
+    "line-height-20": {
+      "type": "lineHeights",
+      "value": "20"
+    },
+    "line-height-24": {
+      "type": "lineHeights",
+      "value": "24"
+    },
+    "line-height-32": {
+      "type": "lineHeights",
+      "value": "32"
+    }
+  },
+  "letterSpacing": {
+    "tracking-tight": {
+      "type": "letterSpacing",
+      "value": "-0.5"
+    },
+    "tracking-normal": {
+      "type": "letterSpacing",
+      "value": "0"
+    },
+    "tracking-wide": {
+      "type": "letterSpacing",
+      "value": "0.5"
+    }
+  }
+}
